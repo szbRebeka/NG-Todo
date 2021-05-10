@@ -1,0 +1,18 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "delectus aut autem",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "fugiat veniam minus",
+      "completed": false
+    },
+    {
+      "newTodo": "go for a walk",
+      "id": 4
+    }
+  ]
+}

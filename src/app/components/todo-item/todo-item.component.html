@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="todo">
+        <input (change)="completeTodo(todo)" type="checkbox" >
+        <p [ngClass]="setCompletedClass()">{{todo.title}}</p>
+        <button (click)="deleteTodo(todo)" class="del-btn">x</button>
+    </div>
+</div>

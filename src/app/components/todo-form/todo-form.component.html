@@ -1,0 +1,10 @@
+<div class="container">
+    <form class="form" #todoForm="ngForm" (submit)="onSubmit(todoForm)">
+        <input required ngModel
+               type="text"
+               name="newTodo"
+               #newTodo = "ngModel"
+                minlength="6">
+        <button type="submit" class="add-btn" [disabled]="todoForm.invalid" >Add todo</button>
+    </form>
+</div>

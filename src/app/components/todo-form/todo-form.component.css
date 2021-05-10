@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+}
+.add-btn {
+    background: transparent;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 5px;
+}
+input.ng-invalid.ng-touched {
+    border: 1px solid darkred;
+    outline: 1px solid darkred;
+}
+input.ng-valid {
+    border: 1px solid mediumseagreen;
+    outline: 1px solid mediumseagreen;
+}
