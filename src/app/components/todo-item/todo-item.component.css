@@ -6,17 +6,16 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    line-height: 30px;
     min-width: 300px;
 }
-.todo p {
-    padding: 0 10px;
+mat-card-subtitle {
+    margin: 0;
+    align-items: center;
 }
 
 .completed {
     text-decoration: line-through;
 }
-.del-btn {
-    justify-self: flex-end;
-
+.del {
+    cursor: pointer;
 }

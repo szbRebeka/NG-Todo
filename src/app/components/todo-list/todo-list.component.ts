@@ -12,15 +12,25 @@ todos: TodoInterface[];
 
   constructor(private todoService: TodoService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.todoService.getTodos().subscribe(data => {
       this.todos = data;
     })
   }
   deleteByID(todo: TodoInterface) {
     console.log("id: ", todo.id)
+    //delete from UI
     this.todos = this.todos.filter(data => data.id != todo.id);
+    //delete from server
     this.todoService.removeTodo(todo).subscribe();
   }
+  addTodo(todo: TodoInterface) {
+    this.todoService.sendTodo(todo).subscribe(data =>{
+      console.log("sent for server", data)
+      this.todos.push(data);
+
+    })
+  }
+
 
 }

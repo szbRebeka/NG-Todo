@@ -1,7 +1,9 @@
 <div class="container">
-    <div class="todo">
-        <input (change)="completeTodo(todo)" type="checkbox" >
-        <p [ngClass]="setCompletedClass()">{{todo.title}}</p>
-        <button (click)="deleteTodo(todo)" class="del-btn">x</button>
+    <div >
+        <mat-card class="todo">
+           <mat-card-subtitle [ngClass]="setCompletedClass()">{{todo.title}}</mat-card-subtitle>
+            <mat-checkbox (change)="completeTodo(todo)"></mat-checkbox>
+            <mat-icon (click)="deleteTodo(todo)" class="del" aria-hidden="false" color="primary">delete</mat-icon>
+        </mat-card>
     </div>
 </div>

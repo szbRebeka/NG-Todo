@@ -1,10 +1,15 @@
 <div class="container">
-    <form class="form" #todoForm="ngForm" (submit)="onSubmit(todoForm)">
-        <input required ngModel
-               type="text"
-               name="newTodo"
-               #newTodo = "ngModel"
-                minlength="6">
-        <button type="submit" class="add-btn" [disabled]="todoForm.invalid" >Add todo</button>
+    <form  class="form" #todoForm="ngForm" (submit)="onSubmit(todoForm)">
+        <mat-form-field>
+            <mat-label>Add your todo</mat-label>
+            <input matInput ngModel
+                   name="title"
+                   type="text"
+                   required minlength="6"
+                    #title="ngModel"
+                    id="title">
+            <div class="error" *ngIf="title.invalid && title.value?.length <= 6  && title.touched"></div>
+        </mat-form-field>
+        <button mat-button color="primary" >Submit</button>
     </form>
 </div>

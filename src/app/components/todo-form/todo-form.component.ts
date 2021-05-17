@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { TodoService } from "../../service/todo.service";
+import { TodoInterface } from "../../models/todo-interface";
 
 @Component({
   selector: 'todo-form',
@@ -8,17 +9,25 @@ import { TodoService } from "../../service/todo.service";
   styleUrls: ['todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit {
-  newTodo: string;
+  @Output() addTodo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+  title: string;
+  todos: TodoInterface[];
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
   }
+
   onSubmit(form: NgForm) {
-    console.log(form.value)
+   /* const todo = {
+      title: this.title,
+      completed: false,
+    }
+    // @ts-ignore
+    this.addTodo.emit(todo);*/
     this.todoService.sendTodo(form.value).subscribe(data =>
-        console.log("sent for server: ",data)
+        this.todos.push(data)
+        //console.log("sent for server: ",data);
     )
   }
-
 }

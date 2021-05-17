@@ -26,7 +26,7 @@ export class TodoItemComponent implements OnInit {
   completeTodo(todo){
     todo.completed = !todo.completed;
     this.todoService.updateTodo(todo).subscribe(data =>
-    console.log(todo));
+    console.log("completed:", data));
   }
   deleteTodo(todo){
     this.delete.emit(todo);

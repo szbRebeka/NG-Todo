@@ -1,5 +1,5 @@
 <h1>Todo list</h1>
-<todo-form></todo-form>
+<todo-form (sendTodo)="addTodo($event)" ></todo-form>
 <todo-item *ngFor="let todo of todos"
            [todo]="todo"
            (delete)="deleteByID($event)">

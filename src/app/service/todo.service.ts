@@ -29,7 +29,7 @@ export class TodoService {
     const url = `${this.todoURL}/${todo.id}`;
     return this.todo.delete<TodoInterface>(url, httpOptions);
   }
-  sendTodo(todo: TodoInterface): Observable<TodoInterface[]> {
-    return this.todo.post<TodoInterface[]>(this.todoURL, todo, httpOptions);
+  sendTodo(todo: TodoInterface): Observable<TodoInterface> {
+    return this.todo.post<TodoInterface>(this.todoURL, todo, httpOptions);
   }
 }
