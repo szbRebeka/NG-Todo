@@ -1,4 +1,4 @@
-<h1>Todo list</h1>
+<todo-header></todo-header>
 <todo-form (onAddTodo)="addTodo($event)"></todo-form>
 <todo-item *ngFor="let todo of todos"
            [todo]="todo"
