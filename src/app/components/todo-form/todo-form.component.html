@@ -1,7 +1,6 @@
 <div class="container">
-    <form  class="form" #todoForm="ngForm" (submit)="onSubmit(todoForm)">
+    <form  class="form" #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
         <mat-form-field>
-            <mat-label>Add your todo</mat-label>
             <input matInput ngModel
                    name="title"
                    type="text"
@@ -10,6 +9,8 @@
                     id="title">
             <div class="error" *ngIf="title.invalid && title.value?.length <= 6  && title.touched"></div>
         </mat-form-field>
-        <button mat-button color="primary" >Submit</button>
+        <button mat-button color="primary" type="submit" >Submit</button>
     </form>
+
+
 </div>

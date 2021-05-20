@@ -9,8 +9,11 @@ import { TodoInterface } from "../../models/todo-interface";
   styleUrls: ['todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit {
-  @Output() addTodo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+  @Output() onAddTodo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
   title: string;
+  completed: boolean;
+  userId: number;
+  id: number;
   todos: TodoInterface[];
 
   constructor(private todoService: TodoService) { }
@@ -18,16 +21,25 @@ export class TodoFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm) {
+    onSubmit(todoForm: NgForm) {
    /* const todo = {
       title: this.title,
       completed: false,
     }
-    // @ts-ignore
     this.addTodo.emit(todo);*/
-    this.todoService.sendTodo(form.value).subscribe(data =>
+    //2.version
+   /* this.todoService.sendTodo(form.value).subscribe(data =>
         this.todos.push(data)
         //console.log("sent for server: ",data);
-    )
+      )
+     */
+    //3.version
+     const newTodo = {
+       title: this.title,
+       completed: this.completed,
+       userId: this.userId,
+       id: this.id,
+     }
+     this.onAddTodo.emit(newTodo)
   }
 }
