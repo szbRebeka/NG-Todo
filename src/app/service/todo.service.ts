@@ -20,6 +20,9 @@ export class TodoService {
   getTodos(): Observable<TodoInterface[]> {
     return this.todo.get<TodoInterface[]> (`${this.todoURL}`)
   }
+  getTodoById(id: number): Observable<TodoInterface> {
+    return this.todo.get<TodoInterface>(this.todoURL + `/${id}`)
+  }
 
   updateTodo(todo: TodoInterface): Observable<any> {
     const url = `${this.todoURL}/${todo.id}`
@@ -32,7 +35,11 @@ export class TodoService {
   sendTodo(todo: TodoInterface): Observable<TodoInterface> {
     return this.todo.post<TodoInterface>(this.todoURL, todo, httpOptions);
   }
-  editTodo(id: number, user: TodoInterface): Observable<TodoInterface> {
+  /*editTodo(id: number, user: TodoInterface): Observable<TodoInterface> {
     return this.todo.put<TodoInterface>(this.todoURL + `/${id}`, user);
+  }*/
+  editTodo(todo: TodoInterface): Observable<TodoInterface>{
+    return this.todo.put<TodoInterface>(this.todoURL+ `/${todo.id}`, todo)
   }
+
 }

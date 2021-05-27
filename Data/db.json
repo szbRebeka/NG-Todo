@@ -1,28 +1,23 @@
 {
   "todos": [
     {
-      "userId": 1,
       "id": 2,
       "title": "quis ut nam facilis et officia qui",
       "completed": false
     },
     {
-      "userId": 1,
       "id": 3,
       "title": "fugiat veniam minus",
       "completed": false
     },
     {
-      "userId": 1,
       "id": 4,
       "title": "et porro tempora",
       "completed": false
     },
     {
-      "id": 6
-    },
-    {
-      "id": 7
+      "title": null,
+      "id": 5
     }
   ]
 }

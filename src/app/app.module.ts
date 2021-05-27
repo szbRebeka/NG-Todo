@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from "@angular/common/http";
@@ -29,19 +29,20 @@ import { AppRoutingModule } from "./routing/app-routing.module";
     HeaderComponent,
     TodoEditComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatToolbarModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatToolbarModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
