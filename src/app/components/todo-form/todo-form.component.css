@@ -9,15 +9,7 @@
     justify-content: center;
     min-width: 300px;
 }
-.add-btn {
-    background: lightpink;
-    color: yellow;
-    font-style: italic;
-    border: 2px solid darkred;
-    cursor: pointer;
-    margin-left: 20px;
-    padding: 5px;
-}
+
 input.ng-invalid.ng-touched {
     border: 1px solid darkred;
     outline: 1px solid darkred;

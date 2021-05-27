@@ -19,3 +19,6 @@ mat-card-subtitle {
 .del {
     cursor: pointer;
 }
+.edit {
+    cursor: pointer;
+}

@@ -32,4 +32,7 @@ export class TodoService {
   sendTodo(todo: TodoInterface): Observable<TodoInterface> {
     return this.todo.post<TodoInterface>(this.todoURL, todo, httpOptions);
   }
+  editTodo(id: number, user: TodoInterface): Observable<TodoInterface> {
+    return this.todo.put<TodoInterface>(this.todoURL + `/${id}`, user);
+  }
 }

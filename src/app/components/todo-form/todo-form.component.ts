@@ -40,6 +40,7 @@ export class TodoFormComponent implements OnInit {
        userId: this.userId,
        id: this.id,
      }
-     this.onAddTodo.emit(newTodo)
+     this.onAddTodo.emit(todoForm.value)
+      console.log(todoForm.value)
   }
 }

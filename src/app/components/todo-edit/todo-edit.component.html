@@ -1,0 +1,13 @@
+<todo-header></todo-header>
+
+<form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+    <mat-form-field>
+        <input type="text" matInput
+               ngModel name="title"
+               required minlength="6"
+               #title="ngModel"
+               id="title">
+        <div class="error" *ngIf="title.invalid && title.value?.length <= 6  && title.touched"></div>
+    </mat-form-field>
+    <button mat-button color="primary" type="submit" [disabled]="editForm.invalid" >Submit</button>
+</form>

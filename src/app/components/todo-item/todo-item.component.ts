@@ -32,4 +32,5 @@ export class TodoItemComponent implements OnInit {
     this.delete.emit(todo);
   }
 
+
 }

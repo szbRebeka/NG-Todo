@@ -1,8 +1,9 @@
 <div class="container">
     <div >
-        <mat-card class="todo">
+        <mat-card class="todo" [id]="todo.id">
            <mat-card-subtitle [ngClass]="setCompletedClass()">{{todo.title}}</mat-card-subtitle>
             <mat-checkbox (change)="completeTodo(todo)"></mat-checkbox>
+            <mat-icon [routerLink]="['todo', todo.id ]" class="edit" color="primary" aria-hidden="false">edit</mat-icon>
             <mat-icon (click)="deleteTodo(todo)" class="del" aria-hidden="false" color="primary">delete</mat-icon>
         </mat-card>
     </div>

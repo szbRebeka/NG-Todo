@@ -26,9 +26,8 @@ todos: TodoInterface[];
   }
   addTodo(todo: TodoInterface) {
     this.todoService.sendTodo(todo).subscribe(data =>{
-      console.log("sent for server", data)
+      console.log("got from server", data)
       this.todos.push(data);
-
     })
   }
 
