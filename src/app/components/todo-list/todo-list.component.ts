@@ -18,15 +18,13 @@ todos: TodoInterface[];
     })
   }
   deleteByID(todo: TodoInterface) {
-    console.log("id: ", todo.id)
-    //delete from UI
+    console.log("id: ", todo.id);
     this.todos = this.todos.filter(data => data.id != todo.id);
-    //delete from server
     this.todoService.removeTodo(todo).subscribe();
   }
   addTodo(todo: TodoInterface) {
     this.todoService.sendTodo(todo).subscribe(data =>{
-      console.log("got from server", data)
+      console.log("got from server", data);
       this.todos.push(data);
     })
   }

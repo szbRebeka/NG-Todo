@@ -7,10 +7,9 @@
                    required minlength="6"
                     #title="ngModel"
                     id="title">
-            <div class="error" *ngIf="title.invalid && title.value?.length <= 6  && title.touched"></div>
+            <div class="error" *ngIf="title.invalid  "></div>
         </mat-form-field>
-        <button mat-button color="primary" type="submit" [disabled]="todoForm.invalid" >Submit</button>
+        <button mat-button color="primary" type="submit" [disabled]="todoForm.invalid  " >Submit</button>
     </form>
-
 
 </div>

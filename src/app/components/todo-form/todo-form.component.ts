@@ -1,6 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { TodoService } from "../../service/todo.service";
 import { TodoInterface } from "../../models/todo-interface";
 
 @Component({
@@ -11,11 +10,10 @@ import { TodoInterface } from "../../models/todo-interface";
 export class TodoFormComponent implements OnInit {
   @Output() onAddTodo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
   title: string;
-  completed: boolean;
   id: number;
   todos: TodoInterface[];
 
-  constructor(private todoService: TodoService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -23,5 +21,6 @@ export class TodoFormComponent implements OnInit {
     onSubmit(todoForm: NgForm) {
      this.onAddTodo.emit(todoForm.value)
       console.log(todoForm.value)
+      todoForm.reset()
   }
 }

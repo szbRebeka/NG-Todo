@@ -14,7 +14,6 @@ export class TodoEditComponent implements OnInit {
 @Output() editValue: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
   title: string
   id:number;
-  completed: boolean;
   todo: TodoInterface;
 
 
@@ -30,15 +29,7 @@ export class TodoEditComponent implements OnInit {
   })
 
   ngOnInit(): void {
-   /* this.route.params
-        .pipe(
-            tap(params => {
-              this.id = params.id;
-            }),
-            switchMap(() => this.todoService.getTodos())
-        )
-        .subscribe( data => console.log('subscribe for', data)
-        )*/
+
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.todoService.getTodoById(this.id).subscribe(res =>{

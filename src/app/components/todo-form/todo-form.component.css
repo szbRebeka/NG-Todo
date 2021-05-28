@@ -10,11 +10,4 @@
     min-width: 300px;
 }
 
-input.ng-invalid.ng-touched {
-    border: 1px solid darkred;
-    outline: 1px solid darkred;
-}
-input.ng-valid {
-    border: 1px solid darkgreen;
-    outline: 1px solid darkgreen;
-}
+
