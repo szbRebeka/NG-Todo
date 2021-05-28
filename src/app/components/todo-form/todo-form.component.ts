@@ -12,7 +12,6 @@ export class TodoFormComponent implements OnInit {
   @Output() onAddTodo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
   title: string;
   completed: boolean;
-  userId: number;
   id: number;
   todos: TodoInterface[];
 
@@ -22,24 +21,6 @@ export class TodoFormComponent implements OnInit {
   }
 
     onSubmit(todoForm: NgForm) {
-   /* const todo = {
-      title: this.title,
-      completed: false,
-    }
-    this.addTodo.emit(todo);*/
-    //2.version
-   /* this.todoService.sendTodo(form.value).subscribe(data =>
-        this.todos.push(data)
-        //console.log("sent for server: ",data);
-      )
-     */
-    //3.version
-     const newTodo = {
-       title: this.title,
-       completed: this.completed,
-       userId: this.userId,
-       id: this.id,
-     }
      this.onAddTodo.emit(todoForm.value)
       console.log(todoForm.value)
   }

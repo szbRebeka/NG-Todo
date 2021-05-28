@@ -39,7 +39,9 @@ export class TodoService {
     return this.todo.put<TodoInterface>(this.todoURL + `/${id}`, user);
   }*/
   editTodo(todo: TodoInterface): Observable<TodoInterface>{
+    console.log(todo)
     return this.todo.put<TodoInterface>(this.todoURL+ `/${todo.id}`, todo)
+
   }
 
 }

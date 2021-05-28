@@ -1,8 +1,8 @@
 <todo-header></todo-header>
 
-<form [formGroup]="editTodo" id="editTodo">
+<form  [formGroup]="editTodo" id="editTodo">
     <mat-form-field>
-        <input type="text" matInput id="title">
+        <input formControlName="editedTodo" type="text" matInput id="title">
     </mat-form-field>
     <button mat-button color="primary"  (click)="onSubmit()" >Submit</button>
 </form>
