@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { TodoInterface } from "../models/todo-interface";
+import { Todo } from "../models/todo-interface";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,30 +17,30 @@ export class TodoService {
   constructor(private todo: HttpClient) { }
   todoURL: string = 'http://localhost:3000/todos'
 
-  getTodos(): Observable<TodoInterface[]> {
-    return this.todo.get<TodoInterface[]> (`${this.todoURL}`)
+  getTodos(): Observable<Todo[]> {
+    return this.todo.get<Todo[]> (`${this.todoURL}`)
   }
-  getTodoById(id: number): Observable<TodoInterface> {
-    return this.todo.get<TodoInterface>(this.todoURL + `/${id}`)
+  getTodoById(id: number): Observable<Todo> {
+    return this.todo.get<Todo>(this.todoURL + `/${id}`)
   }
 
-  updateTodo(todo: TodoInterface): Observable<any> {
+  updateTodo(todo: Todo): Observable<any> {
     const url = `${this.todoURL}/${todo.id}`
     return this.todo.put(url, todo, httpOptions );
   }
-  removeTodo(todo: TodoInterface): Observable<TodoInterface> {
+  removeTodo(todo: Todo): Observable<Todo> {
     const url = `${this.todoURL}/${todo.id}`;
-    return this.todo.delete<TodoInterface>(url, httpOptions);
+    return this.todo.delete<Todo>(url, httpOptions);
   }
-  sendTodo(todo: TodoInterface): Observable<TodoInterface> {
-    return this.todo.post<TodoInterface>(this.todoURL, todo, httpOptions);
+  sendTodo(todo: Todo): Observable<Todo> {
+    return this.todo.post<Todo>(this.todoURL, todo, httpOptions);
   }
   /*editTodo(id: number, user: TodoInterface): Observable<TodoInterface> {
     return this.todo.put<TodoInterface>(this.todoURL + `/${id}`, user);
   }*/
-  editTodo(todo: TodoInterface): Observable<TodoInterface>{
+  editTodo(todo: Todo): Observable<Todo>{
     console.log(todo)
-    return this.todo.put<TodoInterface>(this.todoURL+ `/${todo.id}`, todo)
+    return this.todo.put<Todo>(this.todoURL+ `/${todo.id}`, todo)
 
   }
 

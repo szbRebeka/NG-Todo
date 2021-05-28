@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { TodoInterface } from "../../models/todo-interface";
+import { Todo } from "../../models/todo-interface";
 
 @Component({
   selector: 'todo-form',
@@ -8,10 +8,10 @@ import { TodoInterface } from "../../models/todo-interface";
   styleUrls: ['todo-form.component.css']
 })
 export class TodoFormComponent implements OnInit {
-  @Output() onAddTodo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+  @Output() onAddTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
   title: string;
   id: number;
-  todos: TodoInterface[];
+  todos: Todo[];
 
   constructor() { }
 

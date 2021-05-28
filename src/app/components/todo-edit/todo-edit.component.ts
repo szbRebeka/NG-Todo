@@ -1,8 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import { switchMap, tap } from "rxjs/operators";
 import { TodoService } from "../../service/todo.service";
-import { TodoInterface } from "../../models/todo-interface";
+import { Todo } from "../../models/todo-interface";
 import { FormBuilder, FormGroup, Validators, AbstractControl } from "@angular/forms";
 
 @Component({
@@ -11,10 +10,10 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from "@angular/fo
   styles: ['form { display: flex; justify-content: center}']
 })
 export class TodoEditComponent implements OnInit {
-@Output() editValue: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+@Output() editValue: EventEmitter<Todo> = new EventEmitter<Todo>();
   title: string
   id:number;
-  todo: TodoInterface;
+  todo: Todo;
 
 
   constructor( private fb:FormBuilder, private route: ActivatedRoute, private todoService: TodoService, private router: Router) { }
@@ -44,7 +43,7 @@ export class TodoEditComponent implements OnInit {
 
   onSubmit() {
 
-    const overWritten: TodoInterface = {
+    const overWritten: Todo = {
       title: this.overWrittenTodo.value,
       id: this.id,
       completed: this.todo.completed

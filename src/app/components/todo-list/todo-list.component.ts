@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoInterface } from "../../models/todo-interface";
+import { Todo } from "../../models/todo-interface";
 import {TodoService} from "../../service/todo.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {TodoService} from "../../service/todo.service";
   styleUrls: ['todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-todos: TodoInterface[];
+todos: Todo[];
 
   constructor(private todoService: TodoService) { }
 
@@ -17,12 +17,12 @@ todos: TodoInterface[];
       this.todos = data;
     })
   }
-  deleteByID(todo: TodoInterface) {
+  deleteByID(todo: Todo) {
     console.log("id: ", todo.id);
     this.todos = this.todos.filter(data => data.id != todo.id);
     this.todoService.removeTodo(todo).subscribe();
   }
-  addTodo(todo: TodoInterface) {
+  addTodo(todo: Todo) {
     this.todoService.sendTodo(todo).subscribe(data =>{
       console.log("got from server", data);
       this.todos.push(data);

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { TodoInterface} from "../../models/todo-interface";
+import { Todo} from "../../models/todo-interface";
 import { TodoService } from "../../service/todo.service";
 
 @Component({
@@ -8,8 +8,8 @@ import { TodoService } from "../../service/todo.service";
   styleUrls: ['todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
-  @Input() todo: TodoInterface;
-  @Output() delete: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+  @Input() todo: Todo;
+  @Output() delete: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   constructor(private todoService: TodoService) { }
 
